@@ -6,9 +6,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class HelloController {
-    @GetMapping("/hello")
+    @GetMapping("/jump")
     @ResponseBody
-    public String hello(){
-        return "Hello SBB2";
+    public String jump(){
+        return "점프 투 스프링 부트";
     }
 }
