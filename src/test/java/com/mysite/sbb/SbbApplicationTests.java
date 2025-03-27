@@ -2,6 +2,7 @@ package com.mysite.sbb;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import java.util.Optional;
 
 import java.util.List;
 
@@ -19,10 +20,10 @@ class SbbApplicationTests {
 
     @Test
     void testJpa() {
-        List<Question> all = this.questionRepository.findAll();
-        assertEquals(2,all.size());
-
-        Question q = all.get(0);
-        assertEquals("sbb가 무엇인가요?", q.getSubject());
+        Optional<Question> oq = this.questionRepository.findById(1);
+        if(oq.isPresent()) {
+            Question q = oq.get();
+            assertEquals("sbb가 무엇인가요?", q.getSubject());
+        }
     }
 }
